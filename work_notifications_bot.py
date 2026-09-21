@@ -8,7 +8,7 @@ from environs import Env
 
 def get_devman_check(url, headers, timestamp):
     params = {
-        "timestamp": timestamp,
+        'timestamp': timestamp,
     }
     response = requests.get(
         url,
@@ -73,7 +73,7 @@ def main():
 
     works_checked_url = 'https://dvmn.org/api/long_polling/'
     headers = {
-        "Authorization": f'Token {devman_auth_token}'
+        'Authorization': f'Token {devman_auth_token}'
     }
 
     bot = telegram.Bot(token=tg_token)
