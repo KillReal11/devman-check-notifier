@@ -48,7 +48,6 @@ def run_long_polling(bot, chat_id, devman_url, headers):
         try:
             checks = get_devman_check(devman_url, headers, timestamp)
         except requests.exceptions.ReadTimeout:
-            sys.stderr.write('\033[31mПревышено время ожидания ответа от сервера\033[0m\n')
             continue
         except requests.exceptions.ConnectionError:
             sys.stderr.write('\033[31mНарушено соединение с сервером, ожидание ответа\033[0m\n')
