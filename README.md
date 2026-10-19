@@ -4,6 +4,8 @@ Telegram-бот, который уведомляет об изменении с�
 
 ### Как установить
 
+Для запуска вам потребуется Python версии 3.10.
+
 1. Скачайте код:
    ```bash
    git clone https://github.com/KillReal11/devman-check-notifier.git

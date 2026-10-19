@@ -1,9 +1,12 @@
-import requests
 import json
+import os
 import sys
 import time
+
+import requests
 import telegram
 from environs import Env
+from telegram.utils.request import Request
 
 
 def get_devman_check(url, headers, timestamp):
@@ -69,13 +72,21 @@ def main():
     devman_auth_token = env.str('DEVMAN_TOKEN')
     tg_token = env.str('TG_TOKEN')
     tg_chat_id = env.str('CHAT_ID')
-
+    proxy_url = env.str('PROXY_SOCKS5')
     works_checked_url = 'https://dvmn.org/api/long_polling/'
     headers = {
         'Authorization': f'Token {devman_auth_token}'
     }
-
-    bot = telegram.Bot(token=tg_token)
+    request = Request(
+        proxy_url=proxy_url,
+        connect_timeout=20.0,
+        read_timeout=20.0,
+        urllib3_proxy_kwargs={
+            'cert_reqs': 'CERT_NONE',
+            'assert_hostname': False,
+        }
+    ) if proxy_url else None
+    bot = telegram.Bot(token=tg_token, request=request)
 
     run_long_polling(bot, tg_chat_id, works_checked_url, headers)
 
