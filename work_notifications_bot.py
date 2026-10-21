@@ -1,5 +1,3 @@
-import json
-import os
 import sys
 import time
 import logging
@@ -127,6 +125,8 @@ def main():
         )
     logger.addHandler(tg_handler)
 
+    logger.warning('тест')
+    
     works_checked_url = 'https://dvmn.org/api/long_polling/'
     headers = {
         'Authorization': f'Token {devman_auth_token}'
