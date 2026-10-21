@@ -2,11 +2,18 @@ import json
 import os
 import sys
 import time
+import logging
 
 import requests
 import telegram
 from environs import Env
 from telegram.utils.request import Request
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 
 def get_devman_check(url, headers, timestamp):
@@ -46,7 +53,7 @@ def send_check_result(bot, chat_id, attempt):
 
 def run_long_polling(bot, chat_id, devman_url, headers):
     timestamp = None
-
+    logging.info("Запущен long polling Devman bot")
     while True:
         try:
             checks = get_devman_check(devman_url, headers, timestamp)
@@ -66,6 +73,7 @@ def run_long_polling(bot, chat_id, devman_url, headers):
 
 
 def main():
+    logging.info("Старт бота")
     env = Env()
     env.read_env()
 
