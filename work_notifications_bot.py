@@ -99,7 +99,6 @@ def create_bot(tg_token, proxy_url=None):
 
 
 def main():
-
     env = Env()
     env.read_env()
 
@@ -125,8 +124,6 @@ def main():
         )
     logger.addHandler(tg_handler)
 
-    logger.warning('тест')
-    
     works_checked_url = 'https://dvmn.org/api/long_polling/'
     headers = {
         'Authorization': f'Token {devman_auth_token}'
