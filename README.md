@@ -30,10 +30,12 @@ Telegram-бот, который уведомляет об изменении с�
     TG_TOKEN=1234567890:ABCDefGhIJKlmNoPQRsTUVwxyZ1234567abcd
     DEVMAN_TOKEN=a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0
     CHAT_ID=987654321
+    PROXY_SOCKS5=socks5h://111.111.11.1:11111
    ```
     - **`TG_TOKEN`** — токен Telegram-бота, выдаётся BotFather при создании бота
     - **`DEVMAN_TOKEN`** — токен доступа к API dvmn.org, берётся в настройках профиля на сайте
     - **`CHAT_ID`** — ID чата, куда бот будет отправлять уведомления
+    - **`PROXY_SOCKS5`** — URL SOCKS5-прокси в формате socks5://[user:password@]host:port. Необязательный параметр: если не задан, запросы выполняются напрямую, без прокси.
 
 ## Запуск
 

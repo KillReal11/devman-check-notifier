@@ -117,7 +117,7 @@ def main():
     devman_auth_token = env.str("DEVMAN_TOKEN")
     tg_token = env.str("TG_TOKEN")
     tg_chat_id = env.str("CHAT_ID")
-    proxy_url = env.str("PROXY_SOCKS5")
+    proxy_url = env.str("PROXY_SOCKS5", default=None)
 
     log_format = "%(asctime)s [%(levelname)s] %(message)s"
     log_datefmt = "%Y-%m-%d %H:%M:%S"
